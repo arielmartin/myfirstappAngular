@@ -1,1 +1,24 @@
-<li>{{ nameUser }}</li>
+<h3>Agregar</h3>
+<form (submit)="addUser(newUser)">
+    <input type="text" #newUser>
+    <button>
+        Send User
+    </button>
+</form>
+
+
+<h3>Eliminar</h3>
+<li *ngFor="let user of users">
+    <button (click)="chargeInput(user)">{{ user }} </button>
+    <button (click)="deleteUser(user)">X</button>
+</li>
+
+<h3>Editar</h3>
+<form (submit)="updateUser(modUser)">
+    <input type="text" #modUser name="name" [(ngModel)]="user">
+    <button>Actualizar</button>
+</form>
+
+<p>Nombre: {{user}}</p>
+
+
